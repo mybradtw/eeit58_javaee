@@ -3,6 +3,19 @@
 	function checkAccount(){
 		$("#mesg").load("brad77.jsp?account=" + $("#account").val());
 	}
+	function add(){
+		$.post("brad78.jsp", 
+				{
+					"account" : $("#account").val(),
+					"passwd" : $("#passwd").val(),
+					"realname" : $("#realname").val(),
+					"birthday" : $("#birthday").val()
+				}, function(data, status){
+					if (status == 'success'){
+						console.log("add success");
+					}					
+				});		
+	}
 </script>
 <!DOCTYPE html>
 <html>
@@ -15,6 +28,7 @@
 			Password: <input type="password" id="passwd"><br />
 			Realname: <input type="text" id="realname"><br />
 			Birthday: <input type="date" id="birthday"><br />
+			<button onclick="add()">Add</button>
 		</form>
 	</body>
 </html>
