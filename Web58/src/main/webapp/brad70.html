@@ -8,13 +8,20 @@
 	}
 	
 	function doJob(){
-		setInterval("job()", 1000);
+		setInterval("jobPost()", 1000);
 	}
 	
 	function job(){
 		var max = document.getElementById('max').value;
 		xhttp.open("GET", "brad71.jsp?max=" + max, true);
 		xhttp.send();
+	}
+	
+	function jobPost(){
+		var max = document.getElementById('max').value;
+		xhttp.open("POST", "brad72.jsp", true);
+		xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		xhttp.send("max=" + max);
 	}
 	
 	doJob();
