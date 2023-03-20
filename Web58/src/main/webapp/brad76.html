@@ -1,5 +1,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <script>
+	function checkAccount(){
+		$("#mesg").load("brad77.jsp?account=" + $("#account").val());
+	}
 </script>
 <!DOCTYPE html>
 <html>
@@ -8,7 +11,7 @@
 	</head>
 	<body>
 		<form>
-			Account: <input type="test" id="account"><br />
+			Account: <input type="test" id="account" onblur="checkAccount()" ><span id="mesg"></span><br />
 			Password: <input type="password" id="passwd"><br />
 			Realname: <input type="text" id="realname"><br />
 			Birthday: <input type="date" id="birthday"><br />
