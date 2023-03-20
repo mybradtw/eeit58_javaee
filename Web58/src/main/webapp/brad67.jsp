@@ -27,7 +27,7 @@
 	while (rs.next()){
 		JSONObject obj = new JSONObject();
 		obj.put("id", rs.getString("id"));
-		obj.put("name", rs.getString("name"));
+		obj.put("my-name", rs.getString("name"));
 		obj.put("addr", rs.getString("addr"));
 		obj.put("tel", rs.getString("tel"));
 		obj.put("city", rs.getString("city"));

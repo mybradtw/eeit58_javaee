@@ -1,0 +1,25 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script>
+	function test2(){
+		$.get("brad67.jsp?key=" + $("#key").val(), function(data, status){
+			if (status == 'success'){
+				let json = data.trim();
+				let ary = JSON.parse(json);
+				for (var i=0; i<ary.length; i++){
+					console.log(ary[i]['my-name']);
+				}
+			}
+		});
+	}
+</script>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+	</head>
+	<body>
+		<input id="key" />
+		<button onclick="test2()">Test2</button><hr />
+		<div id="id1"></div>
+	</body>
+</html>

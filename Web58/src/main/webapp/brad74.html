@@ -1,0 +1,30 @@
+<script>
+	let json = '{"key1":"value1", "key2":123}';
+	var var1 = JSON.parse(json);
+	
+	function test1(){
+		document.getElementById("id1").innerHTML = var1.key1;
+		document.getElementById("id2").innerHTML = var1.key2;
+	}
+
+	let json2 = '["Brad","Tony","Eric"]';
+	var var2 = JSON.parse(json2);
+
+	function test2(){
+		document.getElementById("id1").innerHTML = var2[0];
+		document.getElementById("id2").innerHTML = var2[1];
+	}
+	
+</script>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+	</head>
+	<body>
+		<button onclick="test1()">Test1</button>
+		<button onclick="test2()">Test2</button>
+		<hr />
+		<span id="id1"></span> | <span id="id2"></span>
+	</body>
+</html>
