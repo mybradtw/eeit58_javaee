@@ -10,6 +10,16 @@
 			}
 		});
 	}
+	function test3(){
+		$.post("brad72.jsp", 
+				{
+					"max" : $("#max").val()
+				}, function(data, status){
+					if (status == 'success'){
+						$("#id1").html(data);
+					}					
+				});
+	}
 </script>
 <!DOCTYPE html>
 <html>
@@ -20,6 +30,7 @@
 		<input id="max" />
 		<button onclick="test1()">Test1</button><hr />
 		<button onclick="test2()">Test2</button><hr />
+		<button onclick="test3()">Test3</button><hr />
 		<div id="id1"></div>
 	</body>
 </html>
