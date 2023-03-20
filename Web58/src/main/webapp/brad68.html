@@ -1,0 +1,29 @@
+<script type="text/javascript">
+	const xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function(){
+		//console.log("OK2:" + xhttp.readyState);		
+		//console.log("OK2:" + xhttp.status);	
+		if (xhttp.readyState == 4 && xhttp.status == 200){
+			console.log("OK");
+		}
+	};
+	
+	function test1(){
+		console.log("test1()");
+		xhttp.open("GET", "brad69.jsp", true);
+		xhttp.send();
+	}
+	
+</script>
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+	</head>
+	<body>
+	
+	<input type="button" value="test1" onClick="test1()" />
+	
+	</body>
+</html>
