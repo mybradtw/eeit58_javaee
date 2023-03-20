@@ -5,8 +5,15 @@
 		//console.log("OK2:" + xhttp.status);	
 		if (xhttp.readyState == 4 && xhttp.status == 200){
 			console.log("OK");
+			document.getElementById("here").innerHTML = xhttp.responseText;
 		}
 	};
+	
+	xhttp.onload = callback; 
+	function callback(){
+		var id2 = document.getElementById('id2');
+		id2.innerHTML = xhttp.responseText;
+	}
 	
 	function test1(){
 		console.log("test1()");
@@ -23,7 +30,8 @@
 	</head>
 	<body>
 	
-	<input type="button" value="test1" onClick="test1()" />
-	
+	<input type="button" value="test1" onClick="test1()" /><hr />
+	<div id="here"></div><hr />
+	<div id="id2"></div>	
 	</body>
 </html>
