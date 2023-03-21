@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+		<script>
+			var page; 
+			function test1(p){
+				$.ajax({
+					url : "brad78.jsp?page=" + p,
+					type : "get",
+					success : doScuess,
+					error: doError
+				});
+			}
+			
+			function doScuess(json){
+				var jsonObj = $.parseJSON(json.trim());
+				page = jsonObj.page;
+				
+				if (jsonObj.page <= 0) page = 1;
+				if (jsonObj.page > 10) page = 10;
+				
+				$('#page').html(page);
+				
+				if (jsonObj.error != 0) return;
+				
+				$('#table').empty();
+				$(jsonObj.data).each(function(i, row){
+					console.log(i + ":" + row.name + ":" + row.tel);
+					
+					$('#table').append(
+						'<tr>' +
+						'<td>' + row.name + '</td>' +
+						'<td>' + row.tel + '</td>' +
+						'</tr>'
+					);
+					
+				});
+				
+				
+			}
+			
+			function doError(){
+				console.log('Error');
+			}
+			
+			function prev(){
+				test1(--page);
+			}
+			function next(){
+				test1(++page);
+			}
+			
+		</script>
+	</head>
+	<body>
+		<input type="button" value="Load" onclick="test1(1)" />
+		<input type="button" value="Prev" onclick="prev()" />
+		<input type="button" value="Next" onclick="next()" />
+		<hr />
+		Page: <span id='page'></span>
+		<hr />
+		<table border="1" width="100%" id="table"></table>
+	</body>
+</html>
