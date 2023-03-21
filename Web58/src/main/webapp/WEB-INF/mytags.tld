@@ -7,11 +7,8 @@
     <tlib-version>1.0</tlib-version>
     
     <tag>
-	    <!--- 設定的tag名稱 --> 
 	    <name>lottery</name>
-	    <!--- 對應的java程式 --> 
 	    <tag-class>tw.brad.tags.MyTag1</tag-class>
-	    <!--- 設定此標籤是否可以有主體--> 
 	    <body-content>empty</body-content>
     </tag>
 </taglib> 
